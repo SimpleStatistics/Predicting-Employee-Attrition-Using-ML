@@ -120,39 +120,43 @@ The project uses:
 
 ## Example Outputs
 
-The notebook produces several outputs that support the analysis.
+The notebook produces outputs that summarize both the exploratory analysis and the model results.
 
 ### Exploratory Analysis
 
-- overall attrition rate
-- attrition rate by department
-- attrition rate by job role
-- attrition rate by overtime status
-- attrition rate by job satisfaction
-- boxplots for monthly income and years at company by attrition status
-- correlation matrix of selected numeric variables
+Example exploratory findings include:
+
+- an overall attrition rate of approximately **16%**
+- higher attrition rates in certain departments and job roles
+- a much higher attrition rate among employees who work overtime
+- differences in attrition patterns by job satisfaction, monthly income, and years at company
+
+One of the strongest findings in the notebook is that employees who work overtime have a substantially higher attrition rate than employees who do not, making overtime an important business risk indicator.
 
 ### Model Results
 
-- comparison table for all models
+The notebook includes:
+
+- a comparison table for all models
 - weighted vs unweighted model comparison
 - confusion matrix for the selected model
 - ROC curves for all models
 - Precision-Recall curves for all models
 
+In the final results, **Logistic Regression (No Class Weight)** achieved the strongest overall cross-validation F1-score, while **Logistic Regression (Balanced)** achieved higher recall for identifying employees who were likely to leave.
+
 ### Model Interpretation
+
+To support interpretation, the notebook also includes:
 
 - Logistic Regression coefficient tables and coefficient plots
 - Random Forest feature importance table and feature importance plot
 
-### Example Business Findings
+These outputs help identify which variables are most associated with attrition risk, such as overtime, income, tenure, and satisfaction-related factors.
 
-The notebook highlights several practical findings, including:
+### Example Business Insight
 
-- employees working overtime show substantially higher attrition risk
-- attrition risk differs across departments and job roles
-- class weighting improves recall for at-risk employees, but not always overall F1-score
-- simpler models such as Logistic Regression can outperform more complex models on this dataset while remaining easier to interpret
+Overall, the outputs show that employee attrition is not random and can be predicted using employee-level data. The results suggest that HR teams could use these findings to focus retention efforts on high-risk employees, especially those with heavy overtime, lower satisfaction, or shorter tenure.
 
 ---
 
