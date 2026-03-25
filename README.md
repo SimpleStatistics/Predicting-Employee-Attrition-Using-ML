@@ -19,6 +19,9 @@ The goal of this project is to use predictive analytics to predict whether an em
 
 This project uses the **IBM HR Analytics Employee Attrition & Performance** dataset. It is a structured HR dataset commonly used for attrition modeling and includes employee demographics, job-related variables, compensation variables, satisfaction measures, and work-history information.
 
+The dataset contains **1,470 employee records** and **35 original features**, with **no missing values**. The target variable is **Attrition**, which is a binary outcome indicating whether an employee left the company. In this dataset, attrition is the minority class, with roughly **16%** of employees leaving and **84%** staying.
+
+
 Examples of variables used in the project include:
 
 - Age
@@ -106,6 +109,8 @@ These models were chosen to balance interpretability and predictive power:
 - **Random Forest** captures more complex non-linear relationships and provides feature importances.
 - **XGBoost** is a strong boosting method for structured tabular data.
 
+Although the original proposal expected XGBoost to perform best on the main evaluation metrics, the final notebook results showed that Logistic Regression remained highly competitive and easier to interpret. This is an important trade-off in HR analytics, where model transparency matters because decision-makers need to understand why an employee is being flagged as high-risk.
+
 ### 4. Evaluation Strategy
 
 The project uses:
@@ -143,7 +148,7 @@ The notebook includes:
 - ROC curves for all models
 - Precision-Recall curves for all models
 
-In the final results, **Logistic Regression (No Class Weight)** achieved the strongest overall cross-validation F1-score, while **Logistic Regression (Balanced)** achieved higher recall for identifying employees who were likely to leave.
+In the final results, **Logistic Regression (No Class Weight)** achieved the strongest overall cross-validation F1-score, while **Logistic Regression (Balanced)** achieved higher recall for identifying employees who were likely to leave. This result is important because it shows the trade-off between overall balanced performance and catching a greater share of at-risk employees.
 
 ### Model Interpretation
 
@@ -166,8 +171,9 @@ Based on the notebook results:
 
 - employee attrition can be predicted with useful performance using HR and demographic variables
 - overtime, compensation, tenure, and satisfaction-related variables appear to be important drivers of attrition
-- class weighting improves the model’s ability to identify employees who may leave, although it may reduce precision
+- class weighting improves the model’s ability to identify employees who may leave, although it may reduce precision and does not always improve overall F1-score
 - attrition risk is not evenly distributed across the organization, suggesting that targeted retention strategies may be more effective than one broad approach
+- simpler and more interpretable models, such as Logistic Regression, can perform strongly on this dataset while remaining easier to explain to HR stakeholders
 
 ---
 
@@ -179,6 +185,8 @@ This project has several limitations:
 - the analysis is based on historical structured HR data only
 - the project focuses on classification performance rather than causal inference
 - further hyperparameter tuning or alternative models may improve performance
+
+Future improvements could include hyperparameter tuning, threshold optimization, and testing the models on additional HR datasets to assess generalizability.
 
 ---
 
